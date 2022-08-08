@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+//import { Num } from './Componentes/Grafica';
+import Grafica from './Componentes/Grafica2';
+import { Opciones } from './Componentes/Opciones';
 
 function App() {
+  var res = []
+  var rows = []
+  for (let i = 1; i <= 3; i++) {
+    rows.push(Opciones(i))
+  }
+  rows.forEach(e => {
+    console.log(e.props.children.props.children[3].props.children)
+    res.push(e.props.children.props.children[3].props.children)
+  });
+  console.log(("popos", res));
+  //console.log(rows[0].props.children.props.children[3].props.children );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      {
+        rows
+      }
+      {/* <Num {...res}/> */}
+      <Grafica {...res}/>
+  </div>
   );
 }
 
